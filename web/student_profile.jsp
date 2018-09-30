@@ -17,10 +17,8 @@
 	 Email:<%=pobj.getEmail()%><br>
 	 college name:<%=pobj.getCollege_name()%><br>
 	 Pic :<img src="<%=pobj.getProf_pic()%>"></imag>
-
-	 <form action="Read_question" method="get">
-	 <input type="submit" value="start_game/resume_game">
-  	</form>
+     
+         <a href="/ignite/start_game.jsp">start_game</a>
   </center>
 </body>
 </html>

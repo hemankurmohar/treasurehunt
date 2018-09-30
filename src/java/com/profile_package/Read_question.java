@@ -18,7 +18,9 @@ public class Read_question extends HttpServlet {
 		System.out.println("hello");
 		HttpSession session=request.getSession(false); 
 		Profile pobj=(Profile)session.getAttribute("fb_session");
-		 
+		 if(session==null){
+                     response.sendRedirect("/login.jsp");
+                 }
 		 // Variables
 		 Connection con = null;
 		 String id=pobj.getId();  //  reading id from user profile
@@ -56,15 +58,17 @@ public class Read_question extends HttpServlet {
 		    // forwarding to Upload_queston
                     if(q_no>total_question){
 		    	// redirect to user profile with pop message saying you all ready finish the game
-		    	request.setAttribute("info","you all ready finish the game");
-		    	RequestDispatcher next_page =request.getRequestDispatcher("/student_profile.jsp");
-		    	next_page.forward(request,response);
+		    	//request.setAttribute("info","you all ready finish the game");
+		    	//RequestDispatcher next_page =request.getRequestDispatcher("/student_profile.jsp");
+		    	//next_page.forward(request,response);
+                        response.sendRedirect("/student_profile.jsp");
 		    }
                     else{
                         System.out.println("Moving to page Question_update");
                         request.setAttribute("info","from_read_question_page");
-                        RequestDispatcher next_page =request.getRequestDispatcher("/Question_update");
-                        next_page.forward(request,response);
+                        //RequestDispatcher next_page =request.getRequestDispatcher("/Question_update");
+                        //next_page.forward(request,response);
+                        response.sendRedirect("/Question_update");
                         System.out.println("hoo");
                     }
                    

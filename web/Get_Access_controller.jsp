@@ -14,6 +14,7 @@
  Profile_model obj=new Profile_model();
 	Profile pobj=obj.call_me(access_token);
 	pobj.store_info();
+        session=request.getSession(true);
 	session.setAttribute("fb_session",pobj);
         session.setAttribute("user_id",pobj.getId());
  %>
